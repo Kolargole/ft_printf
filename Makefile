@@ -1,4 +1,5 @@
-SRCFILES=	ft_printf.c
+SRCFILES=	ft_printf.c		\
+			ft_printf2.c
 
 
 HEADFILES=	ft_printf.h

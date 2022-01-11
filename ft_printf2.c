@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_printf2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:16:37 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/28 11:58:00 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2022/01/11 15:41:39 by vimercie          #+#    #+#             */
+/*   Updated: 2022/01/11 18:39:52 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+size_t	ft_putstr_fd(char *s, int fd)
 {
-	void	*tmp;
+	size_t	i;
 
-	tmp = dst;
-	if (src == NULL && dst == NULL)
-		return (dst);
-	if (dst < src)
-		return (ft_memcpy(dst, src, n));
-	else if (dst > src)
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
 	{
-		while (n)
-		{
-			n--;
-			*((char *)dst + n) = *((char *)src + n);
-		}
+		write(fd, &(s[i]), 1);
+		i++;
 	}
-	return (tmp);
+	return (i);
+}
+
+size_t	ft_putadress_fd(void	*ptr)
+{
+	char	*ptr;
+	char	c = 'u';
+
+	ptr = &c;
+	printf("%c", *ptr);
 }
