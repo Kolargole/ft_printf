@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf2.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 15:41:39 by vimercie          #+#    #+#             */
-/*   Updated: 2022/01/11 18:39:52 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2022/01/20 15:38:46 by vimercie          #+#    #+#             */
+/*   Updated: 2022/01/20 15:38:56 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_hex(unsigned long long int nb, char xX, int *len)
 {
-	size_t	i;
+	char			*base;
+	unsigned int	len_base;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-	{
-		write(fd, &(s[i]), 1);
-		i++;
-	}
-	return (i);
-}
-
-size_t	ft_putadress_fd(void	*ptr)
-{
-	char	*ptr;
-	char	c = 'u';
-
-	ptr = &c;
-	printf("%c", *ptr);
+	if (xX == 'x')
+		base = "0123456789abcdef";
+	if (xX == 'X')
+		base = "0123456789ABCDEF";
+	len_base = 16;
+	if (nb > len_base - 1)
+		ft_putnbr_hex((nb / len_base), xX, len);
+	ft_putchar_fd(base[nb % len_base], 1, len);
 }
