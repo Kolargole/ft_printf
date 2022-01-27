@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:23:49 by vimercie          #+#    #+#             */
-/*   Updated: 2022/01/25 03:01:18 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:36:39 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,9 @@ void	if_forest(char c, va_list ap, int *len)
 	if (c == 'd' || c == 'i')
 		return (ft_putnbr_fd(va_arg(ap, int), 1, len));
 	if (c == 'u')
-			return (ft_putnbr_fd(va_arg(ap, int), 1, len));
+		return(ft_putnbr_unsigned(va_arg(ap, unsigned int), len));
 	if (c == 'x')
 		return (ft_putnbr_hex(va_arg(ap, unsigned int), "0123456789abcdef", len));
 	if (c == 'X')
 		return (ft_putnbr_hex(va_arg(ap, unsigned int), "0123456789ABCDEF", len));
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	printf("   printf = %u\n", -1);
-// 	ft_printf("ft_printf = %u", -1);
-// }

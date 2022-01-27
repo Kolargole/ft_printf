@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:56:25 by vimercie          #+#    #+#             */
-/*   Updated: 2022/01/25 02:57:27 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:33:32 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	ft_putchar_fd(char c, int fd, int *len);
 void	ft_putstr_fd(char *s, int fd, int *len);
 void	ft_putnbr_fd(int n, int fd, int *len);
 void	ft_putnbr_hex(unsigned long long int nb, char *base, int *len);
+void    ft_putnbr_unsigned(unsigned int nb, int *len);
 
 #endif

@@ -1,9 +1,10 @@
-SRCFILES=	ft_printf.c		\
-			ft_strlen.c		\
-			ft_putchar_fd.c	\
-			ft_putstr_fd.c	\
-			ft_putnbr_fd.c	\
-			ft_putnbr_hex.c	\
+SRCFILES=	ft_printf.c				\
+			ft_strlen.c				\
+			ft_putchar_fd.c			\
+			ft_putstr_fd.c			\
+			ft_putnbr_fd.c			\
+			ft_putnbr_hex.c			\
+			ft_putnbr_unsigned.c	\
 			if_p.c
 
 
