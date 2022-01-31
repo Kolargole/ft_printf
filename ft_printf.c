@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:23:49 by vimercie          #+#    #+#             */
-/*   Updated: 2022/01/27 16:36:39 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 17:43:04 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int	ft_printf(const char *format, ...)
 
 void	if_forest(char c, va_list ap, int *len)
 {
+	char	*hex;
+	char	*hex_caps;
+
+	hex = "0123456789abcdef";
+	hex_caps = "0123456789ABCDEF";
 	if (c == 'c')
 		return (ft_putchar_fd((unsigned char)va_arg(ap, int), 1, len));
 	if (c == 's')
@@ -50,9 +55,9 @@ void	if_forest(char c, va_list ap, int *len)
 	if (c == 'd' || c == 'i')
 		return (ft_putnbr_fd(va_arg(ap, int), 1, len));
 	if (c == 'u')
-		return(ft_putnbr_unsigned(va_arg(ap, unsigned int), len));
+		return (ft_putnbr_unsigned(va_arg(ap, unsigned int), len));
 	if (c == 'x')
-		return (ft_putnbr_hex(va_arg(ap, unsigned int), "0123456789abcdef", len));
+		return (ft_putnbr_hex(va_arg(ap, unsigned int), hex, len));
 	if (c == 'X')
-		return (ft_putnbr_hex(va_arg(ap, unsigned int), "0123456789ABCDEF", len));
+		return (ft_putnbr_hex(va_arg(ap, unsigned int), hex_caps, len));
 }
