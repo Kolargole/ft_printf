@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 17:53:04 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/07 13:25:05 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2022/01/20 15:38:46 by vimercie          #+#    #+#             */
+/*   Updated: 2022/01/25 02:35:09 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlcpy(char	*dst, const char *src, size_t size)
+void	ft_putnbr_hex(unsigned long long int nb, char *base, int *len)
 {
-	size_t	lenmax;
-	size_t	dstsize;
-	int		i;
+	unsigned int	len_base;
 
-	lenmax = 0;
-	dstsize = size;
-	i = 0;
-	if (size == 0)
-		return (ft_strlen(src));
-	while (src[lenmax])
-		lenmax++;
-	while (src[i] && ((dstsize - 1) > 0))
-	{
-		dst[i] = src[i];
-		i++;
-		dstsize--;
-	}
-	dst[i] = '\0';
-	return (lenmax);
+	len_base = ft_strlen(base);
+	if (nb > len_base - 1)
+		ft_putnbr_hex((nb / len_base), base, len);
+	ft_putchar_fd(base[nb % len_base], 1, len);
 }

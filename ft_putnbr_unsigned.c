@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 15:30:16 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/27 15:39:37 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2022/01/27 16:32:02 by vimercie          #+#    #+#             */
+/*   Updated: 2022/01/27 16:36:04 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void    ft_putnbr_unsigned(unsigned int n, int *len)
 {
-	void	*ptr;
-
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+    if (n > 9)
+		ft_putnbr_unsigned(n / 10, len);
+	ft_putchar_fd((n % 10) + '0', 1, len);
 }

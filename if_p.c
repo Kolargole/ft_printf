@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   if_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 15:16:28 by vimercie          #+#    #+#             */
-/*   Updated: 2021/12/21 16:55:57 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2022/01/25 02:19:41 by vimercie          #+#    #+#             */
+/*   Updated: 2022/01/25 02:34:14 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void    if_p(va_list ap, int *len)
 {
-	while (n)
-	{
-		if (*((unsigned char *)s) == (unsigned char)c)
-			return ((unsigned char *)s);
-		s++;
-		n--;
-	}
-	return (NULL);
+    unsigned long long int p;
+
+    p = va_arg(ap, unsigned long long int);
+    if (p == 0)
+        return (ft_putstr_fd("(nil)", 1, len));
+    ft_putstr_fd("0x", 1, len);
+	return (ft_putnbr_hex(p, "0123456789abcdef", len));
 }

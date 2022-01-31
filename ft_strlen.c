@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:16:37 by vimercie          #+#    #+#             */
-/*   Updated: 2021/11/28 11:58:00 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2022/01/25 02:28:31 by vimercie          #+#    #+#             */
+/*   Updated: 2022/01/25 02:32:15 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+size_t  ft_strlen(char *str)
 {
-	void	*tmp;
+    size_t  i;
 
-	tmp = dst;
-	if (src == NULL && dst == NULL)
-		return (dst);
-	if (dst < src)
-		return (ft_memcpy(dst, src, n));
-	else if (dst > src)
-	{
-		while (n)
-		{
-			n--;
-			*((char *)dst + n) = *((char *)src + n);
-		}
-	}
-	return (tmp);
+    i = 0;
+    while(str[i])
+        i++;
+    return (i);
 }
